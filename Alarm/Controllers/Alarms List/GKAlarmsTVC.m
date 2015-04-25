@@ -95,8 +95,9 @@
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF.userInfo.notificationID = %i", [arrAlarms[indexPath.row] notificationID]];
         
         UILocalNotification *notiFToDelete = [[eventArray filteredArrayUsingPredicate:pred] firstObject];
-        [app cancelLocalNotification:notiFToDelete];
-
+        if (notiFToDelete) {
+            [app cancelLocalNotification:notiFToDelete];
+            }
         // Delete the row from the data source
         [arrAlarms removeObjectAtIndex:indexPath.row];
 

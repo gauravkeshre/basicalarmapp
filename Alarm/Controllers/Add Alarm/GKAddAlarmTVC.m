@@ -33,8 +33,6 @@
     return YES;
 }
 #pragma mark - Action Methods
-- (IBAction)handlePickerValueChanged:(UIDatePicker *)pkr {
-}
 
 - (IBAction)handleAddButton:(id)sender {
 
@@ -59,6 +57,8 @@
      [alarmList addObject:alarmObj];
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:alarmList];
     [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:kALARMSLIST];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 - (IBAction)handleDone:(UIButton *)sender {
@@ -84,6 +84,7 @@
         break;
     }
     [self.txtFreeText resignFirstResponder];
+    [self.txtFreeText setText:@""];
 }
 
 -(NSInteger)getUniqueNotificationID

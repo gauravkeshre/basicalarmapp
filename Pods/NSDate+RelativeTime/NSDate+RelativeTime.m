@@ -21,13 +21,13 @@ const int YEAR = DAY*365;
 -(NSString *)relativeTime
 {
     NSDate *currentDate = [NSDate date];
-    int deltaSeconds = fabs(lroundf([self timeIntervalSinceDate:currentDate]));
+    long int deltaSeconds = labs(lroundf([self timeIntervalSinceDate:currentDate]));
     BOOL dateInFuture = ([self timeIntervalSinceDate:currentDate] > 0);
     
     if(deltaSeconds < 2*SECOND) {
         return [self NSDateRelativeTimeLocalizedStrings: @"Now"];
     } else if(deltaSeconds < MINUTE) {
-        return [self formattedStringForCurrentDate:currentDate count:deltaSeconds past:@"%d seconds ago" future:@"%d seconds from now"];
+        return [self formattedStringForCurrentDate:currentDate count:(int)deltaSeconds past:@"%d seconds ago" future:@"%d seconds from now"];
     } else if(deltaSeconds < 1.5*MINUTE) {
         return !dateInFuture ? [self NSDateRelativeTimeLocalizedStrings: @"A minute ago"] : [self NSDateRelativeTimeLocalizedStrings: @"A minute from now"];
     } else if(deltaSeconds < HOUR) {

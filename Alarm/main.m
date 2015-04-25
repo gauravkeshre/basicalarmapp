@@ -11,15 +11,6 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        
-        
-        NSUInteger count = 99;
-        NSString *str = @"orange tshirt";
-        
-        NSArray *arr = @[@"sun", @"moon", @"jupiter"];
-        
-        NSLog(@"%lu - %@", count, str);
-        
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

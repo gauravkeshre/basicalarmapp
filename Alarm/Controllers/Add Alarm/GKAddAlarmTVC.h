@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *pickerView;
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
 
-- (IBAction)handlePickerValueChanged:(id)sender;
 - (IBAction)handleAddButton:(id)sender;
 
 @end
