@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E20C5D361AE60B4700AE490E /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E20C5D351AE60B4700AE490E /* UITextField+Additions.m */; };
+		E2629B411AE62F38006F485C /* wolf_out.caf in Resources */ = {isa = PBXBuildFile; fileRef = E2629B401AE61BA6006F485C /* wolf_out.caf */; };
+		E265C8CE1AE56F4700C2684F /* GKTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E265C8CD1AE56F4700C2684F /* GKTimeLabel.m */; };
 		E29A57AB1ADD8DBA00309034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A57AA1ADD8DBA00309034 /* main.m */; };
 		E29A57AE1ADD8DBA00309034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A57AD1ADD8DBA00309034 /* AppDelegate.m */; };
 		E29A57B71ADD8DBA00309034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29A57B51ADD8DBA00309034 /* Main.storyboard */; };
@@ -23,7 +26,6 @@
 		E29A58131ADE2ABE00309034 /* GKAddAlarmTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A58121ADE2ABE00309034 /* GKAddAlarmTVC.m */; };
 		E29A58171ADE33EC00309034 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A58161ADE33EC00309034 /* NSDate-Utilities.m */; };
 		E29A581E1ADE625400309034 /* GKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A581D1ADE625400309034 /* GKAppearanceManager.m */; };
-		E29A58221ADE665100309034 /* UITableViewController+FloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A58211ADE665100309034 /* UITableViewController+FloatingView.m */; };
 		FD4254B4A67BAC25BF54423A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7BF750097C9AD1FB75B638 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,11 @@
 /* Begin PBXFileReference section */
 		6C4151DDA74D93DE3B06909F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD7BF750097C9AD1FB75B638 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E20C5D341AE60B4700AE490E /* UITextField+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Additions.h"; sourceTree = "<group>"; };
+		E20C5D351AE60B4700AE490E /* UITextField+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Additions.m"; sourceTree = "<group>"; };
+		E2629B401AE61BA6006F485C /* wolf_out.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wolf_out.caf; sourceTree = "<group>"; };
+		E265C8CC1AE56F4700C2684F /* GKTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTimeLabel.h; sourceTree = "<group>"; };
+		E265C8CD1AE56F4700C2684F /* GKTimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTimeLabel.m; sourceTree = "<group>"; };
 		E29A57A51ADD8DBA00309034 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29A57A91ADD8DBA00309034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E29A57AA1ADD8DBA00309034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,8 +80,6 @@
 		E29A58161ADE33EC00309034 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate-Utilities.m"; path = "Categories/NSDate/NSDate-Utilities.m"; sourceTree = "<group>"; };
 		E29A581C1ADE625400309034 /* GKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKAppearanceManager.h; path = Appearance/GKAppearanceManager.h; sourceTree = "<group>"; };
 		E29A581D1ADE625400309034 /* GKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKAppearanceManager.m; path = Appearance/GKAppearanceManager.m; sourceTree = "<group>"; };
-		E29A58201ADE665100309034 /* UITableViewController+FloatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+FloatingView.h"; sourceTree = "<group>"; };
-		E29A58211ADE665100309034 /* UITableViewController+FloatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+FloatingView.m"; sourceTree = "<group>"; };
 		E873A6D1F6818783A018C2C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +119,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E20C5D371AE60B4A00AE490E /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				E20C5D341AE60B4700AE490E /* UITextField+Additions.h */,
+				E20C5D351AE60B4700AE490E /* UITextField+Additions.m */,
+			);
+			name = UITextField;
+			sourceTree = "<group>";
+		};
+		E265C8CB1AE56F4700C2684F /* TimeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E265C8CC1AE56F4700C2684F /* GKTimeLabel.h */,
+				E265C8CD1AE56F4700C2684F /* GKTimeLabel.m */,
+			);
+			name = TimeLabel;
+			path = SWTimeLabel;
+			sourceTree = "<group>";
+		};
 		E29A579C1ADD8DBA00309034 = {
 			isa = PBXGroup;
 			children = (
@@ -137,13 +161,14 @@
 		E29A57A71ADD8DBA00309034 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				E2629B401AE61BA6006F485C /* wolf_out.caf */,
+				E29A57D21ADD8DD600309034 /* Screens */,
 				E29A580C1ADE210000309034 /* VO */,
 				E29A580B1ADDB26700309034 /* External */,
 				E29A58021ADDAB4000309034 /* Protocols */,
 				E29A57F11ADDAA0200309034 /* Helpers */,
 				E29A57DA1ADD9EB400309034 /* Categories */,
 				E29A57D31ADD8DE100309034 /* App Delegate */,
-				E29A57D21ADD8DD600309034 /* Screens */,
 				E29A57D11ADD8DC900309034 /* Storyboards */,
 				E29A57B81ADD8DBA00309034 /* Images.xcassets */,
 				E29A57A81ADD8DBA00309034 /* Supporting Files */,
@@ -218,7 +243,7 @@
 		E29A57DA1ADD9EB400309034 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				E29A581F1ADE665100309034 /* UITableViewController */,
+				E20C5D371AE60B4A00AE490E /* UITextField */,
 				E29A58141ADE33D100309034 /* NSDate */,
 				E29A57FE1ADDAAD500309034 /* TableView */,
 			);
@@ -228,6 +253,7 @@
 		E29A57F11ADDAA0200309034 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E265C8CB1AE56F4700C2684F /* TimeLabel */,
 				E29A581B1ADE623D00309034 /* Appearance */,
 				E29A57F21ADDAA0200309034 /* Button */,
 				E29A57F51ADDAA0200309034 /* Smart Highlight */,
@@ -332,16 +358,6 @@
 			name = Appearance;
 			sourceTree = "<group>";
 		};
-		E29A581F1ADE665100309034 /* UITableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E29A58201ADE665100309034 /* UITableViewController+FloatingView.h */,
-				E29A58211ADE665100309034 /* UITableViewController+FloatingView.m */,
-			);
-			name = UITableViewController;
-			path = Categories/UITableViewController;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,6 +443,7 @@
 				E29A57B71ADD8DBA00309034 /* Main.storyboard in Resources */,
 				E29A57BC1ADD8DBA00309034 /* LaunchScreen.xib in Resources */,
 				E29A57B91ADD8DBA00309034 /* Images.xcassets in Resources */,
+				E2629B411AE62F38006F485C /* wolf_out.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,10 +501,11 @@
 				E29A581E1ADE625400309034 /* GKAppearanceManager.m in Sources */,
 				E29A57AB1ADD8DBA00309034 /* main.m in Sources */,
 				E29A580A1ADDAF2700309034 /* UITableView+RemoveUnwantedCellSeparator.m in Sources */,
-				E29A58221ADE665100309034 /* UITableViewController+FloatingView.m in Sources */,
 				E29A58131ADE2ABE00309034 /* GKAddAlarmTVC.m in Sources */,
+				E265C8CE1AE56F4700C2684F /* GKTimeLabel.m in Sources */,
 				E29A57FC1ADDAA0200309034 /* UIView+SmartHighlight.m in Sources */,
 				E29A58171ADE33EC00309034 /* NSDate-Utilities.m in Sources */,
+				E20C5D361AE60B4700AE490E /* UITextField+Additions.m in Sources */,
 				E29A57E41ADDA0DF00309034 /* GKAlarmsTVC.m in Sources */,
 				E29A57FB1ADDAA0200309034 /* GKButton.m in Sources */,
 			);
@@ -612,14 +630,14 @@
 			baseConfigurationReference = 6C4151DDA74D93DE3B06909F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Softway Solutions, Inc. (2PXGWPSGZC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gaurav K (77Y73KV6HX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Alarm/GKPrefix.pch";
 				INFOPLIST_FILE = Alarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0940a75f-975b-4237-87f3-1985ba2d0ce1";
+				PROVISIONING_PROFILE = "e77bb984-9f6c-4c76-b8c0-98db812cac3b";
 			};
 			name = Debug;
 		};
@@ -635,7 +653,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0940a75f-975b-4237-87f3-1985ba2d0ce1";
+				PROVISIONING_PROFILE = "e77bb984-9f6c-4c76-b8c0-98db812cac3b";
 			};
 			name = Release;
 		};
@@ -713,14 +731,14 @@
 			baseConfigurationReference = E873A6D1F6818783A018C2C6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Softway Solutions, Inc. (2PXGWPSGZC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gaurav K (77Y73KV6HX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Alarm/GKPrefix.pch";
 				INFOPLIST_FILE = Alarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0940a75f-975b-4237-87f3-1985ba2d0ce1";
+				PROVISIONING_PROFILE = "e77bb984-9f6c-4c76-b8c0-98db812cac3b";
 			};
 			name = AdHoc;
 		};

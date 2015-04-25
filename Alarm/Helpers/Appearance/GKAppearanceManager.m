@@ -23,6 +23,11 @@
                                                             NSFontAttributeName: [UIFont boldSystemFontOfSize:22.f],
                                                             NSShadowAttributeName: shadow
                                                             }];
+    
+    UIImage *imgText = [[UIImage imageNamed:@"bg_innershadow"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.f, 5.f, 5.f, 5.f)];
+    
+    [[UITextField appearance]setBackground:imgText];
+
 
 }
 @end

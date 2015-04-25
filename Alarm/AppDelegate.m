@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "GKAppearanceManager.h"
-#import "UITableViewController+FloatingView.h"
 @interface AppDelegate ()
 
 @end
@@ -18,18 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    UIUserNotificationType types = UIUserNotificationTypeBadge |
-    UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    
-    UIUserNotificationSettings *mySettings =
-    [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-    
-    [GKAppearanceManager applyAppearance];
-    [UITableViewController swizzle];
+    [self prepareNotificationForApplication:application];
+     [GKAppearanceManager applyAppearance];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -52,6 +43,60 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler{
+
+    if ([identifier isEqualToString:@"stop"]) {
+        NSLog(@"%@", @"User tapped on: STOP");
+    }else if ([identifier isEqualToString:@"snooze"]) {
+        NSLog(@"%@", @"User tapped on: SNOOZE");
+    }else if ([identifier isEqualToString:@"openApp"]) {
+                NSLog(@"%@", @"User tapped on: OPEN APP");
+    }
+
+}
+#pragma mark - conv Methods
+
+-(void)prepareNotificationForApplication:(UIApplication *)app{
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    
+    UIMutableUserNotificationAction *stopAction = [[UIMutableUserNotificationAction alloc] init];
+    stopAction.identifier = @"stop";
+    stopAction.title = @"Stop";
+    stopAction.activationMode = UIUserNotificationActivationModeBackground;
+    stopAction.destructive = YES;
+    stopAction.authenticationRequired = NO;
+    
+    UIMutableUserNotificationAction *snoozeAction = [[UIMutableUserNotificationAction alloc] init];
+    snoozeAction.identifier = @"snooze";
+    snoozeAction.title = @"Snooze";
+    snoozeAction.activationMode = UIUserNotificationActivationModeBackground;
+    snoozeAction.destructive = NO;
+    snoozeAction.authenticationRequired = NO;
+
+    UIMutableUserNotificationAction *openAppAction = [[UIMutableUserNotificationAction alloc] init];
+    openAppAction.identifier = @"Open App";
+    openAppAction.title = @"openapp";
+    openAppAction.activationMode = UIUserNotificationActivationModeForeground;
+    openAppAction.destructive = NO;
+    openAppAction.authenticationRequired = NO;
+
+    NSArray *actionsArray = @[stopAction, snoozeAction, openAppAction];
+    
+    
+    openAppAction = nil;
+    snoozeAction = nil;
+    stopAction = nil;
+    // Specify the category related to the above actions.
+    UIMutableUserNotificationCategory *notificationCategory = [[UIMutableUserNotificationCategory alloc] init];
+    
+    notificationCategory.identifier = kNOTIF_CAT_ALARM;
+    [notificationCategory setActions:actionsArray forContext:UIUserNotificationActionContextDefault];
+    
+    NSSet *categoriesForSettings = [[NSSet alloc]initWithObjects:notificationCategory, nil];
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:categoriesForSettings];
+    [app registerUserNotificationSettings:mySettings];
 }
 
 @end

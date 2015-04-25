@@ -12,7 +12,7 @@
 @property(nonatomic,strong) NSString * label;
 @property(nonatomic,strong) NSDate * date;
 @property (nonatomic, assign) BOOL enabled;
-@property (nonatomic, assign) int notificationID;
+@property (nonatomic, assign) NSInteger notificationID;
 
 
 @end

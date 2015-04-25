@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GKAddAlarmTVC.h"
 #define kMAXHEIGHT 60
-@interface UITableViewController(FloatingView)
+@interface GKAddAlarmTVC(FloatingView)
 
 @property (nonatomic, strong) UIView *floatingView;
 @property (nonatomic, assign) CGFloat originalOrigin;
 
-+(void)swizzle;
--(void) custom_viewWillAppear:(BOOL)animated;
--(void) custom_viewDidAppear:(BOOL)animated;
 @end

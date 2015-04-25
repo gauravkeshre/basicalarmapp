@@ -7,9 +7,9 @@
 //
 
 #import <objc/runtime.h>
-#import "UITableViewController+FloatingView.h"
+#import "GKAddAlarmTVC+FloatingView.h"
 
-@implementation UITableViewController(FloatingView)
+@implementation GKAddAlarmTVC(FloatingView)
 @dynamic floatingView;
 @dynamic originalOrigin;
 
@@ -112,6 +112,7 @@ static char *kFloatingViewKey;
 
 -(void)handleFloatingButton:(id)sender{
     NSLog(@"%@", sender);
+    
 }
 
 @end

@@ -17,21 +17,21 @@
 }
 
 -(void)prepareFloatingView{
+
     if (self.floatingView) {
         return;
     }
-    
-    UIView *v2 = [[UIView alloc]initWithFrame:CGRectMake(0,0, [[UIScreen mainScreen]bounds].size.width, 120)];
+    UIView *v2 = [[UIView alloc]initWithFrame:CGRectMake(0,0, [[UIScreen mainScreen]bounds].size.width, kFLOATING_BUTTON_HEIGHT)];
     [v2 setBackgroundColor:[UIColor colorWithRed:0.580 green:0.482 blue:0.698 alpha:1.000]];
     [v2 setAlpha:0.6];
     
-    UIView *v1 = [[UIView alloc]initWithFrame:CGRectMake(0, self.originalOrigin, [[UIScreen mainScreen]bounds].size.width, 120)];
+    UIView *v1 = [[UIView alloc]initWithFrame:CGRectMake(0, self.originalOrigin, [[UIScreen mainScreen]bounds].size.width, kFLOATING_BUTTON_HEIGHT)];
     
     [v1 setBackgroundColor:[UIColor clearColor]];
     [v1 addSubview:v2];
     
-    CGRect frameBtn = CGRectInset(v1.bounds, 10, 35);
-    frameBtn.origin.y = 10;
+    CGRect frameBtn = CGRectInset(v1.bounds, 10, 0);
+    frameBtn.origin.y = 0;
     
     UIImage *imgBar = [[UIImage imageNamed:@"btn_bg_green"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f)];
     
@@ -50,6 +50,7 @@
     v2= nil;
     button = nil;
     v1 = nil;
+
 }
 #pragma mark - UIScrollViewDelegate Methods
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

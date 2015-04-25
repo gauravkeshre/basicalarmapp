@@ -25,7 +25,7 @@
     [encoder encodeObject:self.label forKey:@"label"];
     [encoder encodeObject:self.date forKey:@"date"];
     [encoder encodeBool:self.enabled forKey:@"enabled"];
-    [encoder encodeInt:self.notificationID forKey:@"notificationID"];
+    [encoder encodeInteger:self.notificationID forKey:@"notificationID"];
 }
 
 -(id)initWithCoder:(NSCoder *)decoder
@@ -33,8 +33,11 @@
     self.label = [decoder decodeObjectForKey:@"label"];
     self.date = [decoder decodeObjectForKey:@"date"];
     self.enabled = [decoder decodeBoolForKey:@"enabled"];
-    self.notificationID = [decoder decodeIntForKey:@"notificationID"];
+    self.notificationID = [decoder decodeIntegerForKey:@"notificationID"];
     return self;
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"label: %@ \n date: %@ \n notificationID: %li \n enabled : %@", self.label, self.date, (long)self.notificationID, self.enabled?@"YES":@"NO"];
+}
 @end

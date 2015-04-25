@@ -9,12 +9,11 @@
 #import "GKAddAlarmTVC.h"
 #import "NSDate-Utilities.h"
 #import "GKAlarmObject.h"
+#import "UITextField+Additions.h"
 @interface GKAddAlarmTVC()<UITextFieldDelegate>
 {
     NSDataDetector *_detector; // restrain from directly calling _detector
-    
-//    GKAlarmObject *alarmObj;
-//    NSDate *alarmDate;
+    GKAlarmObject *activeNotif;
 }
 @end
 
@@ -22,6 +21,10 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self.pickerView setMinimumDate:[NSDate date]]; // cannot chose dates before "now"
+    [self.txtFreeText fixInsets];
+    [self.txtLabel fixInsets];
+    
+    
 }
 #pragma mark - UITextFieldDelegate Methods
 
@@ -34,17 +37,16 @@
 }
 
 - (IBAction)handleAddButton:(id)sender {
-    
-    
-    
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *alarmListData = [defaults objectForKey:@"AlarmListData"];
+    NSData *alarmListData = [defaults objectForKey:kALARMSLIST];
     NSMutableArray *alarmList = [NSKeyedUnarchiver unarchiveObjectWithData:alarmListData];
     
     if(!alarmList)
     {
         alarmList = [[NSMutableArray alloc]init];
     }
+    
     GKAlarmObject *alarmObj = [GKAlarmObject new];
     [alarmObj setDate:self.pickerView.date];
     [alarmObj setNotificationID:[self getUniqueNotificationID]];
@@ -52,11 +54,11 @@
     NSString *label =self.txtLabel.text?:@"Alarm";
     [alarmObj setLabel:label];
     [alarmObj setEnabled:YES];
-    
+    activeNotif = alarmObj;
     [self scheduleLocalNotificationWithDate:self.pickerView.date atIndex:alarmObj.notificationID];
      [alarmList addObject:alarmObj];
     NSData *alarmListData2 = [NSKeyedArchiver archivedDataWithRootObject:alarmList];
-    [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:@"AlarmListData"];
+    [[NSUserDefaults standardUserDefaults] setObject:alarmListData2 forKey:kALARMSLIST];
 
 }
 - (IBAction)handleDone:(UIButton *)sender {
@@ -82,65 +84,62 @@
         break;
     }
     [self.txtFreeText resignFirstResponder];
-
 }
--(int)getUniqueNotificationID
+
+-(NSInteger)getUniqueNotificationID
 {
-    NSMutableDictionary * hashDict = [[NSMutableDictionary alloc]init];
-    UIApplication *app = [UIApplication sharedApplication];
-    NSArray *eventArray = [app scheduledLocalNotifications];
-    for (int i=0; i<[eventArray count]; i++)
-    {
-        UILocalNotification* oneEvent = [eventArray objectAtIndex:i];
-        NSDictionary *userInfoCurrent = oneEvent.userInfo;
-        NSNumber *uid= [userInfoCurrent valueForKey:@"notificationID"];
-        NSNumber * value =[NSNumber numberWithInt:1];
-        [hashDict setObject:value forKey:uid];
-    }
-    for (int i=0; i<[eventArray count]+1; i++)
-    {
-        NSNumber * value = [hashDict objectForKey:[NSNumber numberWithInt:i]];
-        if(!value)
-        {
-            return i;
+    NSUserDefaults *ud        = [NSUserDefaults standardUserDefaults];
+    NSArray *eventArray       = [NSKeyedUnarchiver unarchiveObjectWithData:[ud objectForKey:kALARMSLIST]];
+    
+    [eventArray sortedArrayUsingComparator:^NSComparisonResult(GKAlarmObject *obj1, GKAlarmObject *obj2) {
+        if (obj1.notificationID < obj2.notificationID) {
+            return NSOrderedAscending;
+        }else if (obj1.notificationID > obj2.notificationID) {
+            return NSOrderedDescending;
+        }else if (obj1.notificationID == obj2.notificationID) {
+            return NSOrderedSame;
         }
-    }
-    return 0;
+        return NSOrderedSame;
+    }];
+    
+    NSInteger i = [(GKAlarmObject *)[eventArray lastObject] notificationID];
+    i++;
+
+    return i;
     
 }
 
 #pragma mark - Alarm Scheduler Methods
 - (void)scheduleLocalNotificationWithDate:(NSDate *)fireDate
-                                  atIndex:(int)indexOfObject {
+                                  atIndex:(NSInteger)indexOfObject {
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     if (!localNotification)
         return;
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"hh-mm -a";
-    NSDate* date = [dateFormatter dateFromString:[dateFormatter stringFromDate:fireDate]];
-    
-//    localNotification.repeatInterval = NSDayCalendarUnit;
-    [localNotification setFireDate:date];
+    [localNotification setFireDate:fireDate];
     [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
+
     // Setup alert notification
-    [localNotification setAlertBody:@"Alarm"];
-    [localNotification setAlertAction:@"Open App"];
-    [localNotification setHasAction:YES];
+    [localNotification setAlertBody:activeNotif.label];
+    [localNotification setCategory:kNOTIF_CAT_ALARM];
+    [localNotification setAlertTitle:@"Alarm App"];
+    [localNotification setSoundName:@"wolf_out.caf"];
+    /*
+     * Created the file with command
+     * afconvert -f caff -d LEI16@44100 -c 1 wolf.wav wolf_out.caf
+     */
+
+    [localNotification setSoundName:@"wolf_out.caf"];
     
-    NSLog(@"%@", date);
-  
     //This array maps the alarms uid to the index of the alarm so that we can cancel specific local notifications
     
-    NSNumber* uidToStore = [NSNumber numberWithInt:indexOfObject];
+    NSNumber* uidToStore = @(indexOfObject);
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uidToStore forKey:@"notificationID"];
     localNotification.userInfo = userInfo;
-    NSLog(@"Uid Store in userInfo %@", [localNotification.userInfo objectForKey:@"notificationID"]);
     
     // Schedule the notification
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
+    activeNotif = nil;
     
 }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2DC3F376-F2FF-47B0-833A-D8AF1A60BD23</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Alarm</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FCB2282695DD937EFBE30765BEFF286247C38FCF</key>
+		<string>https://github.com/summergreen89/basicalarmapp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Alarm.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FCB2282695DD937EFBE30765BEFF286247C38FCF</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/summergreen89/basicalarmapp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FCB2282695DD937EFBE30765BEFF286247C38FCF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FCB2282695DD937EFBE30765BEFF286247C38FCF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Alarm</string>
+		</dict>
+	</array>
+</dict>
+</plist>
